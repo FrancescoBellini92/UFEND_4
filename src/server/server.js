@@ -14,8 +14,9 @@ function logger (req, res, next) {
 
 app.use(express.static('dist'));
 
-app.get('/sentiment-analysis',
-  (req, res, next) => req.body && req.body.text ? next() : res.status(400).send(),
+app.get(
+  '/sentiment-analysis',
+  (req, res, next) => req.body && req.body.text ? next() : res.status(400).json({ error: 'missing text query parameter' }),
   async (req, res) => {
     const text = req.body.text;
     const url = `${apiBaseUrl}?key=${apiKey}&txt=${text}&lang=auto`;
@@ -24,7 +25,7 @@ app.get('/sentiment-analysis',
     console.log('API response', APIResponse);
     if (APIResponse.status.msg !== 'OK') {
       // probably something wrong with the request parameters
-      res.status(449).json(APIResponse.status.msg || 'unknown error');
+      res.status(400).json(APIResponse.status.msg || 'unknown error');
       return;
     }
     res.json(APIResponse);
