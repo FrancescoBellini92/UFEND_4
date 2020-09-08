@@ -1,0 +1,28 @@
+@import '../base/base';
+
+.can-hide {
+  transition: opacity 0.5s;
+  
+  &.hidden {
+    opacity: 0 !important;
+  }
+}
+
+.bg-primary {
+  background-color: $color-primary !important;
+  color: $color-primary-contrast!important;
+}
+
+.color-primary {
+  color: $color-primary;
+  border-color: $color-primary !important;
+}
+
+.shadow {
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06);
+}
+
+.column {
+  @include flex(column, center, center)  
+}

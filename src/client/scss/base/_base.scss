@@ -1,0 +1,25 @@
+$color-primary: rgb(25, 93, 116);
+$color-primary-contrast: rgb(255, 255, 255);
+$color-border: silver;
+$font: 'Roboto', sans-serif;
+
+%padding-small {
+  padding: 5px 10px;
+}
+
+.border {
+  border: 1px solid $color-border;
+}
+
+%border-radius {
+  border-radius: 6px;
+}
+
+@mixin flex($orientation, $justify, $align) {
+  display: flex;
+  flex-direction: $orientation;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+

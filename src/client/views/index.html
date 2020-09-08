@@ -1,38 +1,41 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title>Test</title>
-    </head>
-
-    <body>
-
-        <header>
-            <div class="">
-                Logo
-            </div>
-            <div class="">
-                navigation
-            </div>
-        </header>
-
-        <main>
-            <section>
-                <form class="" onsubmit="return handleSubmit(event)">
-                    <input id="name" type="text" name="input" value="" onblur="onBlur()" placeholder="Name">
-                    <input type="submit" name="" value="submit" onclick="return handleSubmit(event)" onsubmit="return handleSubmit(event)">
-                </form>
-            <section>
-
-            <section>
-                <strong>Form Results:</strong>
-                <div id="results"></div>
-            </section>
-        </main>
-
-        <footer>
-            <p>This is a footer</p>
-        </footer>
-
-    </body>
+<html lang="eng">
+  <head>
+    <meta charset="UTF-8" />
+    <title>UFEND-4 Sentiment Analysis</title>
+    <meta name="description" content="UFEND-3 project">
+    <meta name="keywords" content="NLP">
+    <meta name="author" content="Francesco Bellini">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <header class="header shadow bg-primary">
+      <h1 class="header__title">Sentiment Analysis App</h1>
+    </header>
+    <main class="column">
+      <form name="journal-entry" autocomplete="off" class="entry">
+        <div>
+          <label class="color-primary" for="feelings">Enter text to analyze</label>
+          <textarea class="shadow" name="feelings" id="feelings" placeholder="Enter your feelings here" rows="5" cols="30" required></textarea>
+        </div>
+        <button id="generate" type="submit" class="entry__button bg-primary shadow">Generate</button>
+      </form>
+      <div id="loader" class="loader can-hide hidden"></div>
+      <section class="entry can-hide hidden" id="last-entry">
+        <h2 class="entry__title color-primary">Most Recent Entry</h2>
+        <div id="date">
+          <label class="color-primary" for="date">Date</label>
+          <input class="entry__date shadow" type="date" id="date-input" name="date" disabled />
+        </div id="temp">
+        <div>
+          <label class="color-primary" for="temp">The weather</label>
+          <input class="shadow" type="text" id="temp-input" name="temp"  disabled/>
+        </div>
+        <div id="content">
+          <label class="color-primary" for="content">Your feelings</label>
+          <textarea class="shadow" name="content" id="content-input" placeholder="Enter your feelings here" rows="5" cols="30" disabled></textarea>
+        </div>
+      </section>
+    </main>
+  </body>
 </html>

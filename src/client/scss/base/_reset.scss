@@ -1,0 +1,38 @@
+@import './base';
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    border: 0;
+    box-sizing: border-box;
+    font-family: $font;
+  }
+  
+  input {
+    @extend .border;
+    border-radius: 6px;
+    width: 80%;
+    max-width: 400px;
+  }
+  
+  textarea {
+    @extend %padding-small;
+    @extend .border;
+    @extend %border-radius;
+    width: 80%;
+    max-width: 400px;
+    max-height: 200px;
+  }
+  
+  button {
+    @extend %padding-small;
+    @extend %border-radius;
+  }
+  
+  label {
+    padding: 5px 0;
+  }
+  
+  ul {
+    list-style: none;
+  }

@@ -1,0 +1,10 @@
+@import '../base/base';
+
+.header {
+ @include flex(row, center, center);
+
+  .header__title {
+    font-size: 16px;
+  }
+}
+
