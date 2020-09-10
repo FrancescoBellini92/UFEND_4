@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const fetch = require('node-fetch');
-const { port, apiKey, apiBaseUrl, mode } = require('./environment');
+const { PORT, APIKEY, APIBASEURL, MODE } = require('./environment');
 
 const app = express();
 app.use(logger, bodyParser.json(), cors());
@@ -14,11 +14,11 @@ function logger (req, res, next) {
 
 app.get(
   '/sentiment-analysis',
-  (req, res, next) => req.body && req.body.text ? next() : res.status(400).json({ error: 'missing text query parameter' }),
+  (req, res, next) => req.query && req.query.text ? next() : res.status(400).json({ error: 'missing text query parameter' }),
   async (req, res) => {
     try {
-      const text = req.body.text;
-      const url = `${apiBaseUrl}?key=${apiKey}&txt=${text}&lang=auto`;
+      const text = req.query.text;
+      const url = `${APIBASEURL}?key=${APIKEY}&txt=${text}&lang=auto`;
       const APIRequest = await fetch(url, { method: 'POST' });
       const APIResponse = await APIRequest.json();
       console.log('API response', APIResponse);
@@ -27,10 +27,10 @@ app.get(
         res.status(400).json(APIResponse.status.msg || 'unknown error');
         return;
       }
-      res.json(APIResponse);
+      res.json({success: 'true', data: APIResponse });
     } catch (e) {
       res.status(500).send()
-      if (mode === 'PROD') {
+      if (MODE === 'PROD') {
         console.error(e);
       } else {
         throw e;
@@ -39,9 +39,9 @@ app.get(
   }
 );
 
-if (mode === 'PROD') {
+if (MODE === 'PROD') {
   app.use(express.static('dist'));
 }
-app.listen(port, () => {
-  console.log(`Server listening on port ${port}`);
+app.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`);
 });

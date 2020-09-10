@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-
+const Webpack = require('webpack');
+const { mode, port } = require('./src/server/environment');
 module.exports = {
   entry: './src/client/index.js',
   mode: 'development',
@@ -24,6 +25,10 @@ module.exports = {
     }),
     new CleanWebpackPlugin({
       // dry: true
+    }),
+    new Webpack.DefinePlugin({
+      "process.env.APIURL": JSON.stringify(`http://localhost:${port}/sentiment-analysis`),
+      "process.env.MODE": JSON.stringify(mode)
     })
   ]
 };
