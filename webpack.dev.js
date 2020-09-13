@@ -1,7 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const Webpack = require('webpack');
-const { mode, port } = require('./src/server/environment');
+const { MODE, PORT } = require('./src/server/environment');
 module.exports = {
   entry: './src/client/index.js',
   mode: 'development',
@@ -11,7 +11,7 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: '/node_modules',
-        loader: 'babel-loader' // transpile everything to es5
+        loader: 'babel-loader'
       },
       {
         test: /\.scss$/,
@@ -27,8 +27,8 @@ module.exports = {
       // dry: true
     }),
     new Webpack.DefinePlugin({
-      "process.env.APIURL": JSON.stringify(`http://localhost:${port}/sentiment-analysis`),
-      "process.env.MODE": JSON.stringify(mode)
+      'process.env.APIURL': JSON.stringify(`http://localhost:${PORT}/sentiment-analysis`),
+      'process.env.MODE': JSON.stringify(MODE)
     })
   ]
 };
