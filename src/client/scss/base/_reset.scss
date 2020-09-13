@@ -7,21 +7,12 @@
     box-sizing: border-box;
     font-family: $font;
   }
-  
-  input {
-    @extend .border;
-    border-radius: 6px;
-    padding: 5px 10px;
-    max-width: 400px;
-  }
-  
+    
   textarea {
     @extend %padding-small;
-    @extend .border;
     @extend %border-radius;
-    width: 80%;
-    max-width: 400px;
-    max-height: 200px;
+    @extend .border;
+    width: 100%;
   }
   
   button {

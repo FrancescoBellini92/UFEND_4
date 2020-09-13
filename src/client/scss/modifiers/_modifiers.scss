@@ -8,6 +8,14 @@
   }
 }
 
+.s {
+  width: 50px !important;
+}
+
+.m {
+  width: 120px;
+}
+
 .bg-primary {
   background-color: $color-primary !important;
   color: $color-primary-contrast!important;
@@ -25,4 +33,8 @@
 
 .column {
   @include flex(column, center, center)  
+}
+
+.row {
+  @include flex(row, space-between, center)  
 }

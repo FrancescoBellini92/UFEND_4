@@ -10,39 +10,25 @@
   </head>
   <body>
     <header class="header shadow bg-primary">
-      <h1 class="header__title">Sentiment Analysis App</h1>
+      <h1 class="header__title">Sentiment Analysis</h1>
     </header>
     <main class="column">
-      <form name="journal-entry" autocomplete="off" class="entry">
-        <div>
+      <form name="text-entry" autocomplete="off" class="section">
+        <div class="column">
           <label class="color-primary" for="feelings">Enter text to analyze</label>
-          <textarea class="shadow" name="feelings" id="feelings" placeholder="Enter your feelings here" rows="5" cols="30" required></textarea>
+          <textarea class="shadow" name="text" id="text" placeholder="Write the text to analyze" rows="5" cols="30" required></textarea>
         </div>
-        <button id="generate" type="submit" class="entry__button bg-primary shadow">Generate</button>
+        <button id="analyze-btn" type="submit" class="section__button bg-primary shadow">Analyze</button>
       </form>
       <div id="loader" class="loader can-hide hidden"></div>
-      <section class="entry can-hide hidden" id="last-entry">
-        <h2 class="entry__title color-primary">Analysis</h2>
-        <div>
-          <label class="color-primary" for="confidence">Confidence - is the text ironic?</label>
-          <input class="shadow" type="number "name="confidence" id="confidence" disabled/>
-        </div>
-        <div>
-          <label class="color-primary" for="score">Score - positive or negative?</label>
-          <input class="shadow" type="text" id="score" name="date" disabled />
-        </div>
-        <div>
-          <label class="color-primary" for="agreement">Agreement - do the sentences agree overall?</label>
-          <input class="shadow" type="text" id="agreement" name="agreement"  disabled/>
-        </div>
-        <div>
-          <label class="color-primary" for="subjectivity">Subjectivity -  how does the text appear?</label>
-          <input class="shadow" type="text" name="subjectivity" id="subjectivity" disabled/>
-        </div>
-        <div>
-          <label class="color-primary" for="irony">Irony - is the text ironic?</label>
-          <input class="shadow" type="text" name="irony" id="irony" disabled/>
-        </div>
+      <section class="section can-hide hidden" id="analysis-container">
+        <ul class="list">
+          <li class="list__item"><p>Analysis confidence: <strong id="confidence"></strong></p></li>
+          <li class="list__item"><p>Emotional score: <strong id="score"></strong></p></li>
+          <li class="list__item"><p>Inner agreement: <em id="agreement"></em></p></li>
+          <li class="list__item"><p>Subjectivity: <em id="subjectivity"></em></p></li>
+          <li class="list__item"><p>Irony: <em id="irony"></b></em></li>
+        </ul>
       </section>
     </main>
   </body>

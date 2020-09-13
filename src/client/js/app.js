@@ -4,17 +4,17 @@ import environment from './environment';
 export default () => {
   const loader = $('#loader');
 
-  const textInput = $('#feelings');
-  const generateBtn = $('#generate');
+  const textInput = $('#text');
+  const analyzeBtn = $('#analyze-btn');
 
-  const lastEntryContainer = $('#last-entry');
+  const analysisContainer = $('#analysis-container');
   const confidenceInput = $('#confidence');
   const scoreInput = $('#score');
   const agreementInput = $('#agreement');
   const subjectivityInput = $('#subjectivity');
   const ironyInput = $('#irony');
 
-  const isProd = environment.MODE === 'PROD'
+  const isProd = environment.MODE === 'PROD';
 
   async function analyseText(e) {
     try {
@@ -33,9 +33,9 @@ export default () => {
         }
       );
       renderResponse(analysisResponse);
-      show(lastEntryContainer);
+      show(analysisContainer);
     } catch (e) {
-      console.log(e);
+      alert('Something went wrong :(')
     } finally {
       hide(loader)
     }
@@ -58,12 +58,12 @@ export default () => {
     }
 
     function renderResponse(response) {
-      confidenceInput.value = response.confidence;
-      scoreInput.value = response.score_tag;
-      agreementInput.value = response.agreement;
-      subjectivityInput.value = response.subjectivity;
-      ironyInput.value = response.irony;
+      confidenceInput.innerText = response.confidence;
+      scoreInput.innerText = response.score_tag;
+      agreementInput.innerText = response.agreement.toLowerCase();
+      subjectivityInput.innerText = response.subjectivity.toLowerCase();
+      ironyInput.innerText = response.irony.toLowerCase();
     }
   }
-  generateBtn.addEventListener('click', analyseText);
+  analyzeBtn.addEventListener('click', analyseText);
 }
