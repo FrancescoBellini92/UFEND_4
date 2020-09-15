@@ -20,7 +20,7 @@ export default () => {
   async function analyseText(e) {
     try {
       if (inputNotValid(textInput)) {
-        throw new Error('Validation error: input not valid');
+        throw new Error('Validation error: input was not valid');
       }
       e.preventDefault();
       show(loader);
@@ -29,8 +29,8 @@ export default () => {
       const analysisRequest = await sendRequest(url, isProd);
       const analysisResponse = await manageRequestResponse(
         analysisRequest,
-        request => !request.ok,
-        request => request.status === 400 ? alert('Bad input') : null);
+        response => !response.ok,
+        response => response.status === 400 ? alert('Sorry, we could not analyze this text: try with a longer sentence') : null);
       renderResponse(analysisResponse);
       show(analysisContainer);
     } catch (e) {
