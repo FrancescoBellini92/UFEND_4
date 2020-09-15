@@ -4,11 +4,14 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
+const Webpack = require('webpack');
+const { MODE } = require('./src/server/environment');
+
 module.exports = {
   entry: './src/client/index.js',
   mode: 'production',
   optimization: {
-    // terser minifies js, opmtimizeCs... minifies css
+    // terser minifies js, opmtimizeCss minifies css
     minimizer: [new TerserPlugin({}), new OptimizeCssAssetsPlugin({})]
   },
   module: {
@@ -27,11 +30,13 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/client/views/index.html'
+      template: './src/client/html/index.html'
     }),
-    new CleanWebpackPlugin({
-      // dry: true
-    }),
-    new MiniCssExtractPlugin({})
+    new CleanWebpackPlugin({}),
+    new MiniCssExtractPlugin({}),
+    new Webpack.DefinePlugin({
+      'process.env.APIURL': JSON.stringify('/sentiment-analysis'),
+      'process.env.MODE': JSON.stringify(MODE)
+    })
   ]
 };

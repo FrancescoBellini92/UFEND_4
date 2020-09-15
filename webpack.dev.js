@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const Webpack = require('webpack');
 const { MODE, PORT } = require('./src/server/environment');
+
 module.exports = {
   entry: './src/client/index.js',
   mode: 'development',
@@ -21,11 +22,9 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/client/views/index.html'
+      template: './src/client/html/index.html'
     }),
-    new CleanWebpackPlugin({
-      // dry: true
-    }),
+    new CleanWebpackPlugin({}),
     new Webpack.DefinePlugin({
       'process.env.APIURL': JSON.stringify(`http://localhost:${PORT}/sentiment-analysis`),
       'process.env.MODE': JSON.stringify(MODE)
