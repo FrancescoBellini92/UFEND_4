@@ -27,7 +27,7 @@ app.get(
         res.status(400).json(APIResponse.status.msg || 'unknown error');
         return;
       }
-      res.json({success: 'true', data: APIResponse });
+      res.json({ success: 'true', data: APIResponse });
     } catch (e) {
       res.status(500).send()
       if (MODE === 'PROD') {
