@@ -4,11 +4,11 @@ export function sendRequest(url, isProd) {
   });
 }
 
-export async function manageRequestResponse(pendingRequest, errorCheck = () => {}, errorHandler = () => {}) {
-  if (errorCheck(pendingRequest)) {
-    errorHandler(pendingRequest);
-    throw new Error(`Request failed: ${pendingRequest.status}`);
+export async function manageRequestResponse(response, errorCheck = () => {}, errorHandler = () => {}) {
+  if (errorCheck(response)) {
+    errorHandler(response);
+    throw new Error(`Request failed: ${response.status}`);
   }
-  const payload = await pendingRequest.json();
+  const payload = await response.json();
   return payload.data;
 }
