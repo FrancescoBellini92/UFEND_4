@@ -48,7 +48,7 @@ module.exports = {
       logo: './src/assets/icons/icon.png',
       favicons: {
         appName: 'Sentiment Analysis',
-        appShortName: 'Text Analysis',
+        appShortName: 'Sentiment Analysis',
         appDescription: 'NLP text analyzer',
         version: '1.0',
         start_url: '.',
