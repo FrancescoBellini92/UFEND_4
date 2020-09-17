@@ -13,6 +13,8 @@ Client-side, js handles requests to-from the backend and UI update logic. Perfor
 A small suite of unit tests has been written to promote easier refactoring and code modularity
 
 A service worker runs to ensure all assets are cached for offline functionality and quicker loading times 
+
+App is deployed at https://ufend-sentiment-analysis.herokuapp.com/
 #
 ## Dependencies
 
