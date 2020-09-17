@@ -8,7 +8,7 @@ const app = express();
 app.use(logger, bodyParser.json(), cors());
 
 function logger (req, res, next) {
-  console.log('Request', 'method', req.method, 'pathanme', req.url);
+  console.log('Request', 'method', req.method, 'pathname', req.url);
   next();
 }
 
