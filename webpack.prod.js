@@ -44,6 +44,10 @@ module.exports = {
       'process.env.APIURL': JSON.stringify('/sentiment-analysis'),
       'process.env.MODE': JSON.stringify(MODE)
     }),
+    new WorkBoxPlugin.GenerateSW({
+      clientsClaim: true,
+      skipWaiting: true
+    }),
     new FaviconsWebpackPlugin({
       logo: './src/assets/icons/icon.png',
       favicons: {
@@ -51,7 +55,7 @@ module.exports = {
         appShortName: 'Sentiment Analysis',
         appDescription: 'NLP text analyzer',
         version: '1.0',
-        start_url: '.',
+        start_url: '/',
         scope: '/',
         display: 'standalone',
         background_color: '#ffffff',
@@ -61,10 +65,6 @@ module.exports = {
           yandex: false
         }
       }
-    }),
-    new WorkBoxPlugin.GenerateSW({
-      clientsClaim: true,
-      skipWaiting: true
     })
   ]
 };
