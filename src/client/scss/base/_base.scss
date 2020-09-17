@@ -3,29 +3,7 @@
   src: url('/src/assets/fonts/Roboto-Regular.ttf') format('ttf');
 }
 
-
 $color-primary: rgb(10, 104, 133);
 $color-primary-contrast: rgb(255, 255, 255);
 $color-border: silver;
 $font: 'Roboto', sans-serif;
-
-%padding-small {
-  padding: 5px 10px;
-}
-
-.border {
-  border: 1px solid $color-border;
-}
-
-%border-radius {
-  border-radius: 6px;
-}
-
-@mixin flex($orientation, $justify, $align) {
-  display: flex;
-  flex-direction: $orientation;
-  justify-content: $justify;
-  align-items: $align;
-}
-
-

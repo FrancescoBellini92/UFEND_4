@@ -1,10 +1,9 @@
-@import '../base/base';
+// @import '../modifiers/modifiers';
 
 .header {
- @include flex(row, center, center);
+  @extend .row;
 
   .header__title {
     font-size: 16px;
   }
 }
-
