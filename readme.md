@@ -22,6 +22,8 @@ Please refer to package.json for dependencies
 
 #
 ## How to run
-- npm run dev : bundles all source code and serve via webpack-dev-server
-- npm run build: bundles all source code and assets for the node server to be served
+Install all dependencies via npm install, then create and .env file with the variables specified in .env.example
+Then:
+- npm run dev : bundles all source code and serve via webpack-dev-server (be sure to set MODE to 'DEV' in your env file)
+- npm run build: bundles all source code and assets for the node server to be served (be sure to set MODE to 'PROD' in your env file)
 - npm start: run the node server (which is providing a small API as well as serving the main page) 
