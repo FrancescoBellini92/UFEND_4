@@ -1,5 +1,7 @@
 ## Udacity Front End ND project 4
 
+Fourth project for the Udacity Front End Nanodegree: this project required using build tools (e.g., Webpack) and unit-testing.
+
 This repo contains a simple web page for performing sentiment analysis on text.
 
 Source code is split in various modules, which are bundled via webpack.
